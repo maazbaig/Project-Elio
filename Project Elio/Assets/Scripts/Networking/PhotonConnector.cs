@@ -41,7 +41,7 @@ public class PhotonConnector : MonoBehaviourPunCallbacks
         }
 
         RoomOptions roomOptions = new RoomOptions();
-        roomOptions.IsVisible = false;
+        roomOptions.IsVisible = true;
         roomOptions.MaxPlayers = 4;
         PhotonNetwork.CreateRoom(roomName, roomOptions);
         Debug.Log($"Creating room: " + roomName);
@@ -51,6 +51,7 @@ public class PhotonConnector : MonoBehaviourPunCallbacks
 
     public void JoinGame()
     {
+        Debug.Log($"Joining: {JoinRoomField.text}");
         PhotonNetwork.JoinRoom(JoinRoomField.text);
     }
 }

@@ -20,8 +20,10 @@ public class PhotonRoomConnector : MonoBehaviourPunCallbacks
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
+        Debug.Log($"Couldn't Join room: {message}");
         PhotonConnector.Instance.MainMenu.SetActive(true);
         InGameCanvas.SetActive(false);
         JoiningText.SetActive(false);
+        CreatingText.SetActive(false);
     }
 }

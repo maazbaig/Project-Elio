@@ -5763,6 +5763,7 @@ GameObject:
   - component: {fileID: 467056199829394753}
   - component: {fileID: 8906348509179701950}
   - component: {fileID: 676410011518718403}
+  - component: {fileID: 9150166546108789815}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -5881,6 +5882,23 @@ MonoBehaviour:
   mouseSensitivity: 1
   shipFollowSensitivity: 3
   ShipBody: {fileID: 2639376826564916400}
+--- !u!114 &9150166546108789815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3438333213895625824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: a74a0bd21ab74944cb9c6e5b3ae4cfe9, type: 2}
 --- !u!1 &4866067363581938295
 GameObject:
   m_ObjectHideFlags: 0

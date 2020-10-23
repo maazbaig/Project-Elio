@@ -12,6 +12,7 @@ public class PhotonConnector : MonoBehaviourPunCallbacks
     public GameObject ConnectingText;
     public GameObject MainMenu;
 
+    public TextMeshProUGUI CreateRoomField;
     public TextMeshProUGUI JoinRoomField;
     public TextMeshProUGUI RoomTextField;
 
@@ -19,7 +20,8 @@ public class PhotonConnector : MonoBehaviourPunCallbacks
     void Start()
     {
         Instance = this;
-        PhotonNetwork.SendRate = 40;
+        PhotonNetwork.SendRate = 30;
+        PhotonNetwork.SerializationRate = 30;
         PhotonNetwork.ConnectUsingSettings();
     }
 
@@ -32,21 +34,21 @@ public class PhotonConnector : MonoBehaviourPunCallbacks
 
     public void CreateGame()
     {
-        const string glyphs = "abcdefghijklmnopqrstuvwxyz0123456789"; //add the characters you want
-        string roomName = "";
+        //const string glyphs = "abcdefghijklmnopqrstuvwxyz0123456789"; //add the characters you want
+        //string roomName = "";
 
-        for(int i=0; i < 5; i++)
-        {
-            roomName += glyphs[Random.Range(0, glyphs.Length)];
-        }
+        //for(int i=0; i < 5; i++)
+        //{
+        //    roomName += glyphs[Random.Range(0, glyphs.Length)];
+        //}
 
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.IsVisible = true;
         roomOptions.MaxPlayers = 4;
-        PhotonNetwork.CreateRoom(roomName, roomOptions);
-        Debug.Log($"Creating room: " + roomName);
+        PhotonNetwork.CreateRoom(CreateRoomField.text, roomOptions);
+        Debug.Log($"Creating room: " + CreateRoomField.text);
 
-        RoomTextField.text = roomName;
+        RoomTextField.text = CreateRoomField.text;
     }
 
     public void JoinGame()

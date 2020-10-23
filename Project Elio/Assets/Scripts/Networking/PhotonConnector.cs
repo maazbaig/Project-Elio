@@ -7,7 +7,10 @@ using TMPro;
 
 public class PhotonConnector : MonoBehaviourPunCallbacks
 {   
+    public GameObject ConnectingText;
+    public GameObject MainMenu;
     
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +20,8 @@ public class PhotonConnector : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log("OnConnectedToMaster() was called by PUN.");
-       
+        ConnectingText.SetActive(false);
+        MainMenu.SetActive(true);
     }
 
     public void CreateGame()

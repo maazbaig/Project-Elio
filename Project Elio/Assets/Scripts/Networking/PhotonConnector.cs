@@ -6,14 +6,20 @@ using Photon.Realtime;
 using TMPro;
 
 public class PhotonConnector : MonoBehaviourPunCallbacks
-{   
+{
+    public static PhotonConnector Instance;
+
     public GameObject ConnectingText;
     public GameObject MainMenu;
-    
+
+    public TextMeshProUGUI JoinRoomField;
+    public TextMeshProUGUI RoomTextField;
 
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
+        PhotonNetwork.SendRate = 40;
         PhotonNetwork.ConnectUsingSettings();
     }
 
@@ -39,5 +45,12 @@ public class PhotonConnector : MonoBehaviourPunCallbacks
         roomOptions.MaxPlayers = 4;
         PhotonNetwork.CreateRoom(roomName, roomOptions);
         Debug.Log($"Creating room: " + roomName);
+
+        RoomTextField.text = roomName;
+    }
+
+    public void JoinGame()
+    {
+        PhotonNetwork.JoinRoom(JoinRoomField.text);
     }
 }
